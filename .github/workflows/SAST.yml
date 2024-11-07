@@ -29,6 +29,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - run: |
-        semgrep ci --json --json-output /tmp/semgrep.json
+        semgrep scan --json --json-output /tmp/semgrep.json
     - name: View the output
       run: cat /tmp/semgrep.json
