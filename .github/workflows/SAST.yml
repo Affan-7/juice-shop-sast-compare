@@ -19,6 +19,7 @@ jobs:
         semgrep scan --json --json-output /tmp/semgrep.json
     - name: View the output
       run: cat /tmp/semgrep.json
+  
   semgrep-pro:
     name: semgrep-pro
     runs-on: ubuntu-20.04
@@ -32,3 +33,15 @@ jobs:
         semgrep scan --json --json-output /tmp/semgrep.json
     - name: View the output
       run: cat /tmp/semgrep.json
+  
+  SonarQube-free:
+    name: SonarQube-free
+    runs-on: runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+    - uses: sonarsource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: https://sq.accuknox.com
