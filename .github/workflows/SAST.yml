@@ -9,7 +9,7 @@ on:
 name: Semgrep vs SonarQube
 jobs:
   semgrep-free:
-    name: semgrep-free
+    name: Semgrep-free
     runs-on: ubuntu-20.04
     container:
       image: returntocorp/semgrep
@@ -21,7 +21,7 @@ jobs:
       run: cat /tmp/semgrep.json
   
   semgrep-pro:
-    name: semgrep-pro
+    name: Semgrep-pro
     runs-on: ubuntu-20.04
     env:
       SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
