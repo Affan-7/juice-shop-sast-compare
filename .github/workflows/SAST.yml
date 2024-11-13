@@ -61,4 +61,4 @@ jobs:
         SONAR_HOST_URL: http://139.59.43.202:9000
       with:
         args: >
-          -Dsonar.sonar.projectKey=juice-shop-sast-compare-1
+          -Dsonar.projectKey=juice-shop-sast-compare-1
