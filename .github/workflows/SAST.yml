@@ -6,7 +6,7 @@ on:
     - master
     paths:
     - .github/workflows/SAST.yml
-name: Semgrep vs SonarQube
+name: SAST comparison
 jobs:
   semgrep-free:
     name: Semgrep-free
@@ -41,19 +41,23 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+        args: >
+          -Dsonar.sonar.projectKey=juice-shop-sast-compare
     - uses: sonarsource/sonarqube-scan-action@master
       env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FREE }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: https://sq.accuknox.com
 
   SonarQube-Paid:
-    name: SonarQube-free
+    name: SonarQube-Paid
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+        args: >
+          -Dsonar.sonar.projectKey=juice-shop-sast-compare-1
     - uses: sonarsource/sonarqube-scan-action@master
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_PAID }}
-        SONAR_HOST_URL: http://139.59.43.202:9000/
+        SONAR_HOST_URL: http://139.59.43.202:9000
