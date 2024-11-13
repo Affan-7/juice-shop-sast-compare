@@ -66,16 +66,16 @@ jobs:
 #           -Dsonar.projectKey=juice-shop-sast-compare
 
   Checkmarx:
-  name: Checkmarx
-  runs-on: ubuntu-latest
+    name: Checkmarx
+    runs-on: ubuntu-latest
 
-  steps:
-  - name: Checkout
-    uses: actions/checkout@v2
-  - name: Checkmarx AST CLI Action
-    uses: checkmarx/ast-github-action@main #Github Action version
-    with:
-      base_uri: https://deu.iam.checkmarx.net/
-      cx_tenant: accuknox-nfr
-      cx_client_id: affan
-      cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Checkmarx AST CLI Action
+      uses: checkmarx/ast-github-action@main #Github Action version
+      with:
+        base_uri: https://deu.iam.checkmarx.net/
+        cx_tenant: accuknox-nfr
+        cx_client_id: affan
+        cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
