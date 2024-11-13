@@ -62,3 +62,4 @@ jobs:
       with:
         args: >
           -Dsonar.projectKey=juice-shop-sast-compare-1
+          
