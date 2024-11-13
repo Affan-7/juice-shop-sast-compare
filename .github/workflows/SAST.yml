@@ -5,8 +5,8 @@ on:
     - main
     paths:
     - .github/workflows/SAST.yml
-# name: SAST comparison
-# jobs:
+name: SAST comparison
+jobs:
 #   semgrep-free:
 #     name: Semgrep-free
 #     runs-on: ubuntu-20.04
@@ -75,7 +75,7 @@ on:
   - name: Checkmarx AST CLI Action
     uses: checkmarx/ast-github-action@main #Github Action version
     with:
-      base_uri: https://ast.checkmarx.net/
+      base_uri: https://deu.iam.checkmarx.net/
       cx_tenant: accuknox-nfr
       cx_client_id: affan
       cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
