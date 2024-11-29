@@ -1,0 +1,7 @@
+applications:
+- api_domain: juice-shop.herokuapp.com
+  application_name: juice-shop
+  authentication_mode: non-authenticated
+  exclude_paths: []
+  target_url: http://142.93.194.17:3000/
+  type: web
